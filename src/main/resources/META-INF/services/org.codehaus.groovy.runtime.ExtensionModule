@@ -1,0 +1,3 @@
+moduleName=balance-check
+moduleVersion=1.0-SNAPSHOT
+extensionClasses=com.kon.balance.data.domain.orient.OrientDSL,com.kon.balance.data.domain.orient.OrientGraphDSL

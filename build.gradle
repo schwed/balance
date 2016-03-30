@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo.spring.io/libs-release' }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.7.RELEASE'
+    }
+}
+
+
+group 'com.kpmg.dns.balance'
+version '1.0-SNAPSHOT'
+
+
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+jar {
+    baseName = 'balance-export'
+    version = '1.0.0'
+}
+
+
+def spring = '1.2.7.RELEASE'
+def groovy = '2.4.4'
+def orient = '2.1.2'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile"org.springframework.boot:spring-boot-starter:${spring}"
+    compile "org.codehaus.groovy:groovy-all:${groovy}"
+    compile "com.orientechnologies:orientdb-graphdb:${orient}"
+}
+
+sourceSets {
+    main.resources {
+        srcDir file('src/main/groovy/')
+        srcDir file('src/main/resources/')
+    }
+}
+
+
